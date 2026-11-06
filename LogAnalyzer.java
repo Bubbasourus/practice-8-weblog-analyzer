@@ -26,6 +26,21 @@ public class LogAnalyzer
     }
 
     /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public LogAnalyzer(String filename)
+    {
+        // Create the array object to hold the hourly
+        // access counts.
+        hourCounts = new int[HOURS_PER_DAY];
+        // Create the reader to obtain the data.
+        reader = new LogfileReader(filename);
+    }
+
+    /**
      * Analyze the hourly access data from the log file.
      */
     public void analyzeHourlyData()
@@ -45,11 +60,13 @@ public class LogAnalyzer
     public void printHourlyCounts()
     {
         System.out.println("Hr: Count");
-        for(int hour = 0; hour < hourCounts.length; hour++) {
+        int hour = 0;
+        while (hour < hourCounts[hour]) {
             System.out.println(hour + ": " + hourCounts[hour]);
+            hour++;
         }
     }
-    
+
     /**
      * Print the lines of data read by the LogfileReader
      */
@@ -57,4 +74,43 @@ public class LogAnalyzer
     {
         reader.printData();
     }
+
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void numberOfAccesses()
+    {
+        // put your code here
+    }
+
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public int busiestHour() {
+        int hour = 0;
+        while (hour < hourCounts[hour]) {
+            System.out.println(hour + ": " + hourCounts[hour]);
+            hour++;
+        }
+        return 1;
+    }
+        
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public int sampleMethod(int y)
+    {
+        // put your code here
+        return y;
+    }
+
 }

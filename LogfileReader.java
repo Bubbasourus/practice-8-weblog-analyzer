@@ -78,6 +78,7 @@ public class LogfileReader implements Iterator<LogEntry>
     public LogfileReader()
     {
         this("weblog.txt");
+    
     }
 
     /**

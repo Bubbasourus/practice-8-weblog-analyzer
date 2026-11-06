@@ -2,6 +2,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.ArrayList;
+
 
 /**
  * A class for creating log files of random data.
@@ -66,6 +68,7 @@ public class LogfileCreator
         int hour = rand.nextInt(24);
         int minute = rand.nextInt(60);
         return new LogEntry(year, month, day, hour, minute);
+
     }
 
 }
