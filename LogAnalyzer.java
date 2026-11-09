@@ -51,7 +51,7 @@ public class LogAnalyzer
             hourCounts[hour]++;
         }
     }
-
+    
     /**
      * Print the hourly counts.
      * These should have been set with a prior
@@ -81,36 +81,75 @@ public class LogAnalyzer
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public void numberOfAccesses()
+    public int numberOfAccesses()
     {
-        // put your code here
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int busiestHour() {
-        int hour = 0;
-        while (hour < hourCounts[hour]) {
-            System.out.println(hour + ": " + hourCounts[hour]);
-            hour++;
+        int total = 0;
+        for (int hour = 0; hour < hourCounts.length; hour++) {
+            total = total + hourCounts[hour];
         }
-        return 1;
+        return total;
     }
-        
+
     /**
      * An example of a method - replace this comment with your own
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return y;
+    public void busiestHour() {
+        int busiest = 0;
+        int busiestHour = 0;
+        for (int hour = 0; hour < hourCounts.length; hour++) {
+            int b = hourCounts[hour];
+            if (busiest < b) {
+                busiest = b;
+                busiestHour = hour;
+            }
+        }
+        System.out.println("The busiest hour is: " + busiestHour + " with " + busiest + " accesses.");
     }
-
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void quietestHour() {
+        int quietest = 999999;
+        int quietestHour = 0;
+        for (int hour = 0; hour < hourCounts.length; hour++) {
+            int b = hourCounts[hour];
+            if (quietest > b) {
+                quietest = b;
+                quietestHour = hour;
+            }
+        }
+        System.out.println("The quietest hour is: " + quietestHour + " with " + quietest + " accesses.");
+    }
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void busiest2Hour() {
+        int busiest = 0;
+        int busiestHour = 0;
+        for (int hour = 0; hour < hourCounts.length; hour++) {
+            int a = hourCounts[hour];
+            int hour2 = hour + 1;
+            if (hour2 > 23) {
+                hour2 = 0;
+            }
+            int b = hourCounts[hour2];
+            int c = a + b;
+            if (busiest < c) {
+                busiest = c;
+                busiestHour = hour;
+            }
+        }
+        System.out.println("The busiest 2 hour period is: " + busiestHour + " with " + busiest + " accesses.");
+    }
 }
